@@ -1,0 +1,89 @@
+{% extends 'faculty_base.html' %}
+
+{% block 'content' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static '/css/student_main.css'%}">
+    <title>Faculty Home</title>
+</head>
+<body>
+
+        {%if user.is_authenticated%}
+        <div class="main_1">
+
+            <div class="left">
+
+                <form  action="profile_update" method="POST" class="my-account-info">
+
+                    {% csrf_token %}
+
+                    <span class="info">First Name</span>
+                    
+                    <input class="view" type="text"  name="first_name" value="{{user.first_name}}" >
+
+
+                    <span class="info">Last Name</span>
+
+                    <input class="view"type="text" name="last_name"  value="{{user.last_name}}">
+
+                    <span class="info">Student ID</span>
+
+                    <input class="view"type="text" id="disable"  value="{{user.username}}">
+
+
+                    <span class="info">Email</span>
+
+                    <input  class="view" name="email" value="{{user.email}}">
+
+                    <button class="btn-submit" onclick="close_up()" type="submit">Update</button>
+
+                </form>
+
+
+                <a href="{% url 'faculty_change_password_views' %}" class="change">Change Password</a>
+
+            </div>
+
+
+            <div>
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <div class="but_con" id="pop">
+                    <img class="pop_image" src="{%static '/images/failed.png'%}" alt="right">
+                    <h4 class="message"> {{message}}</h4>
+                    <button class="note_but" style="background: rgb(207, 68, 68);" onclick="close_up()">Try Again</button>
+                </div>
+                {% endif %}
+                {% if message.tags == 'success' %}
+                <div class="but_con" id="pop">
+                    <img class="pop_image" src="{%static '/images/succes.png'%}" alt="right">
+                    <h4 class="message"> {{message}}</h4>
+                    <button class="note_but" style="background:rgb(99, 201, 99);"onclick="close_up()">Ok</button>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
+        
+        {%else%}
+        <a href="{% url 'faculty_login' %}"></a><button class="home" id="login">Please Login</button>
+
+        {%endif%}
+    </div>
+
+
+</body>
+
+</html>
+
+{% endblock 'content' %} 

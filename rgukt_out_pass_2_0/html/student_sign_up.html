@@ -1,0 +1,91 @@
+
+
+{% extends 'no_account_base.html' %}
+
+{% block 'content' %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{%static '/css/sign_up.css'%}">
+    <link rel="stylesheet" href="{%static '/css/pop_up.css'%}">
+    <title>Student SignUp</title>
+</head>
+
+<body>
+    <div id="page-wrap">
+
+        <div class="fit">
+
+            <div class="box">
+
+                <form action="signup" class="form_fit" method="POST">
+                    
+                    {% csrf_token %}
+                    
+                        <input type="text" class="first-name" name="first_name"   placeholder=" " required>
+                        <label class="first-name-place">First Name</label>
+
+                        <input type="text" class="last-name" name="last_name"   placeholder=" " required>
+                        <label class="last-name-place">Last Name</label>
+
+                        <input type="text" class="id" name="student_id"   placeholder=" " required>
+                        <label class="id_place">Student ID ( Like R001 or r001 )</label>
+
+                        <input type="text" class="email" name="email"   placeholder=" " required>
+                        <label class="email-place">Email</label>
+
+                        <input type="password" class="passwd" name="passwd_1"   placeholder=" " required>
+                        <label class="passwd-place">Create Password</label>
+
+                        <input type="password" class="passwd-check" name="confirm"   placeholder=" " required>
+                        <label class="passwd-check-place">Re-Enter Password</label>
+
+                        <button type="submit" class="signup" onclick="close_up()">SignUp</button>
+
+                        <label class="notice">Already Have an Account !</label>
+                        <a href="{% url 'student_login' %}">Login</a>
+                        
+                </form>
+
+                <div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                    <div class="but_con" id="pop">
+                        <img class="pop_image" src="{%static '/images/failed.png'%}" alt="right">
+                        <h4 class="message"> {{message}}</h4>
+                        <button class="note_but" style="background: rgb(207, 68, 68);" onclick="close_up()">Try Again</button>
+                    </div>
+                    {% endif %}
+                    {% if message.tags == 'success' %}
+                    <div class="but_con" id="pop">
+                        <img class="pop_image" src="{%static '/images/succes.png'%}" alt="right">
+                        <h4 class="message"> {{message}}</h4>
+                        <a href="{% url 'student_login' %}" ><button class="note_but" style="background: rgb(99, 201, 99);">Login</button></a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+        
+            </div>
+        </div>
+
+    </div>
+    <script>
+        let popup = document.getElementById("pop");
+        function close_up() {
+            popup.classList.add("open_pop_up");
+        }
+    </script>
+</body>
+</html>
+
+{% endblock 'content' %}

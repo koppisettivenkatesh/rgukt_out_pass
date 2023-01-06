@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#page-wrap {
+    max-width: 1350px;
+    margin: 0 auto;
+    
+  }
+.fit{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    margin-top: 5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+body{
+    font-family: poppins;
+}
+.con {
+    margin-left: 28rem;
+    width: 400px;
+    height: 300px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 6px;
+    background: #15364b;
+    box-shadow: 2px 2px 4px 0px rgb(85, 82, 82);
+}
+
+.input-data-user , .input-data-passwd {
+    padding: 0.8rem;
+    width: 20rem;
+    margin-top: 1rem;
+    background: transparent;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    border: 2px solid white;
+    letter-spacing: 1px;
+    border-radius: 0.4rem;
+}
+
+.input-data-user:focus+.id_place,
+input:not(:placeholder-shown)+.id_place {
+    margin-top: -13.4rem;
+    font-size: 0.8em;
+    background: #15364b;
+    padding: 0;
+}
+
+.id_place {
+    position: absolute;
+    font-size: 14px;
+    margin-left: -7.2rem;
+    margin-top: -10.4rem;
+    padding: 0px 5px;
+    color: rgb(255, 255, 255);
+    pointer-events: none;
+    font-weight: bold;
+    transition: 0.3s;
+
+}
+
+
+.input-data-passwd:focus+.passwd,
+input:not(:placeholder-shown)+.passwd {
+    margin-top: -5.2rem;
+    font-size: 0.8em;
+    background: #15364b;
+    padding: 0;
+}
+
+.passwd {
+    position: absolute;
+    font-size: 14px;
+    margin-left: -13rem;
+    margin-top: -2.3rem;
+    padding: 0px 5px;
+    color: rgb(255, 255, 255);
+    pointer-events: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login {
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+    width: 4rem;
+    height: 2.8rem;
+    margin-left: 16rem;
+    margin-top: 2.4rem;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0.4rem;
+    font-family: poppins;
+    font-weight: bold;
+}
+
+.notice {
+    font-size: 11px;
+    color: #fff;
+}
+
+a {
+    font-size: 11px;
+    margin-top: 0.1rem;
+    color: rgb(78, 160, 171);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+  input{
+    font-family: poppins;
+    font-weight: bold;
+    box-shadow:  0 50px  #15364b inset ;
+    -webkit-text-fill-color: white;
+  }
+  
+  .pop_pop{
+    width: 20%;
+    height: 30vh;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: poppins;
+    margin-top: 11rem ;
+    margin-left: 24%;
+    transition: ease-out 0.3s;
+    transform:  scale(1);
+    position: absolute;
+  }
+
+  

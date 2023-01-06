@@ -1,0 +1,48 @@
+{% extends 'faculty_base.html' %}
+
+{% block 'content' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static '/css/faculty_approved.css'%}">
+    <title>Faculty Approved</title>
+</head>
+<body>
+<div id="page-wrap">
+
+    {%if user.is_authenticated%}
+
+    <div class="main_1">
+        <div class="main_2">
+            <spas class="title">Application Date</spas>
+            <span class="title" >Date</span>
+            <span class="title">Reason</span>
+            <span class="title">Status</span>
+        </div>  
+        {% for pass in new_request %}
+        {% if pass.faculty_id == user.username %}
+        {% if pass.response == 'approve' %}
+        <div class="main_3">
+            <span class="title">{{pass.today_date}}</span>
+            <span class="title">{{pass.out_data}} </span>
+            <span class="title" >{{pass.main_reason}}</span>
+            <span class="approve">Approved</span>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    {%else%}
+    <a href="{% url 'faculty_login' %}"><button class="home" >Please Login</button></a>
+    {%endif%}
+
+</div>
+</body>
+</html>
+
+{% endblock 'content'  %}
