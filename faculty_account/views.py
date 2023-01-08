@@ -42,11 +42,10 @@ def login(request):
             elif check == "r":
                 messages.error(request,'Please Login with Faculty credentials')
                 return redirect('faculty_login')
-            elif check == "R":
+            else :
+                check == "R"
                 messages.error(request,'Please Login with Faculty credentials ')
                 return redirect('faculty_login')
-            else:
-                break
     else:
         messages.error(request,'Something Went Wrong')
         return redirect('faculty_login')

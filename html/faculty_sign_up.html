@@ -27,7 +27,7 @@
                 <form action="signup" class="form_fit" method="POST">
                     
                     {% csrf_token %}
-
+                    
                         <input type="text" class="first-name" name="first_name"   placeholder=" " required>
                         <label class="first-name-place">First Name</label>
 
@@ -35,7 +35,7 @@
                         <label class="last-name-place">Last Name</label>
 
                         <input type="text" class="id" name="faculty_id"   placeholder=" " required>
-                        <label class="id_place">Faculty ID ( Like F001 or f001 )</label>
+                        <label class="id_place">Student ID ( Like R001 or r001 )</label>
 
                         <input type="text" class="email" name="email"   placeholder=" " required>
                         <label class="email-place">Email</label>
@@ -58,15 +58,15 @@
                     {% for message in messages %}
                     {% if message.tags == 'error' %}
                     <div class="but_con" id="pop">
-                        <img class="error_img" src="{%static '/images/failed.png'%}" alt="right">
-                        <h4 class="note"> {{message}}</h4>
+                        <img class="pop_image" src="{%static '/images/failed.png'%}" alt="right">
+                        <h4 class="message"> {{message}}</h4>
                         <button class="note_but" style="background: rgb(207, 68, 68);" onclick="close_up()">Try Again</button>
                     </div>
                     {% endif %}
                     {% if message.tags == 'success' %}
                     <div class="but_con" id="pop">
-                        <img class="error_img" src="{%static '/images/succes.png'%}" alt="right">
-                        <h4 class="note"> {{message}}</h4>
+                        <img class="pop_image" src="{%static '/images/succes.png'%}" alt="right">
+                        <h4 class="message"> {{message}}</h4>
                         <a href="{% url 'faculty_login' %}" ><button class="note_but" style="background: rgb(99, 201, 99);">Login</button></a>
                     </div>
                     {% endif %}
@@ -77,6 +77,7 @@
         
             </div>
         </div>
+
     </div>
     <script>
         let popup = document.getElementById("pop");

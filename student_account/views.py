@@ -71,7 +71,7 @@ def signup(request):
 
             else:
                 user = User.objects.create_user(username = student_id , email = email, password = passwd_1 ,first_name = first_name , last_name = last_name)
-                user.save();
+                user.save()
                 messages.success(request,"SignUp Is Successful")
                 return redirect('student_sign_up')
         else:
