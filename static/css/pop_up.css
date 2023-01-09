@@ -36,7 +36,6 @@
   }
   .note_but {
     margin-top: 1rem;
-    background: rgb(41, 207, 41);
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: white;
@@ -44,9 +43,17 @@
     width: 15%;
     height: 5.5vh;
     font-family: poppins;
-    text-align: center;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
     cursor: pointer;
+    align-items: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-  
+  .ok-btn{
+    border: none;
+    font-family: poppins;
+    background: none;
+    cursor: pointer;
+    color: white;
+  }

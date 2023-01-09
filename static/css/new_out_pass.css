@@ -1,4 +1,4 @@
-* {
+    * {
     padding: 0;
     margin: 0;
 }
@@ -149,3 +149,54 @@ input{
     -webkit-text-fill-color: rgb(117, 111, 111) ;
   }
   
+   
+.but_con {
+    width: 20%;
+    height: 30vh;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: poppins;
+    transition: ease-out 0.3s;
+    margin-left: -45%;
+    margin-top: 10rem;
+    transform:  scale(1);
+    position: absolute;
+  }
+  
+  .open_pop_up {
+    transform:scale(0);
+  }
+  .pop_image{
+    width: 25%;
+    margin-top: -1rem;
+    height: 9.5vh;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .message{
+      font-family: poppins;
+      font-weight: bold;
+      margin-top: 2%;
+  
+  }
+  .note_but {
+    margin-top: 1rem;
+    background: rgb(41, 207, 41);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    border: none;
+    width: 15%;
+    height: 5.5vh;
+    font-family: poppins;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }

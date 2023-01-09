@@ -12,5 +12,7 @@ urlpatterns = [
     path("logout",views.logout,name='logout'),
     path("faculty_change_password/",faculty_change_password.as_view(),name='faculty_change_password_views'),
     path('faculty_change_password/done/',faculty_change_password_done.as_view(),name='faculty_change_password_done_views'),
+    path('profile_update',views.profile_update,name="profile_update"),
+
 
 ]

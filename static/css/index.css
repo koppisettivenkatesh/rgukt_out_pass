@@ -156,10 +156,6 @@ nav {
   }
 }
 
-#display{
-  display: none;
-}
-
 @media only screen and (max-width: 1182px) {
   .logo{
     font-size: x-small;
@@ -167,7 +163,28 @@ nav {
 }
 
 
-@media (max-width : 500px) {
+.mobile-con{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mobile{
+  padding: 1rem;
+  background-color: white;
+  font-family: poppins;
+  font-weight: 500;
+}
+
+
+#display{
+  display: none;
+}
+
+
+
+@media (max-width : 830px) {
   #page-wrap{
     display: none;
   }

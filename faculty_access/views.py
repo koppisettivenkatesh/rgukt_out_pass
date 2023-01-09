@@ -60,3 +60,18 @@ def faculty_new_request(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def profile_update(request):
+    if request.method == "POST":
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        user = User.objects.get(username=request.user.username)
+        update = User.objects.filter(username= user).update(first_name=first_name,last_name=last_name,email = email)
+        messages.success(request,"Successfully Updated")
+        return redirect(request.META['HTTP_REFERER'])   
+
+    else:
+        messages.error(request, "Something Went Wrong")
+        return redirect(request.META['HTTP_REFERER'])

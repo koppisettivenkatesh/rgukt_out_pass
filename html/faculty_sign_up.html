@@ -67,7 +67,7 @@
                     <div class="but_con" id="pop">
                         <img class="pop_image" src="{%static '/images/succes.png'%}" alt="right">
                         <h4 class="message"> {{message}}</h4>
-                        <a href="{% url 'faculty_login' %}" ><button class="note_but" style="background: rgb(99, 201, 99);">Login</button></a>
+                        <a href="{% url 'faculty_login' %}" style="background: rgb(99, 201, 99);" class="note_but" ><button  class="ok-btn">Login</button></a>
                     </div>
                     {% endif %}
                     {% endfor %}
@@ -79,6 +79,11 @@
         </div>
 
     </div>
+
+    <div id="display" class="mobile-con">
+        <p class="mobile" >Site is  not compatible with mobile please use as desktop site </p>
+      </div>
+      
     <script>
         let popup = document.getElementById("pop");
         function close_up() {
