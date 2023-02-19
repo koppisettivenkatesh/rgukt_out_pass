@@ -1,0 +1,100 @@
+{% extends 'faculty_base.html' %}
+
+{% block 'content' %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static '/css/faculty_new_request.css'%}">
+    <title>Faculty New Request</title>
+</head>
+<body>
+    <div id="page-wrap">
+        {%if user.is_authenticated%}     
+            <div class="new-con">
+                {% for pass in new_request %}
+                {% if pass.response == 'pending' %}
+                <div class="new-box">
+                    <form action="faculty_new_request" method="POST" class="data-con">
+                        {% csrf_token %}
+                        <h4 class="data">Name : {{pass.first_name}} {{pass.last_name}}</h4>
+                        <h4 class="data">Student ID : {{pass.student_id}}</h4>
+                        <h4 class="data">Application Date : {{pass.today_date}}</h4>
+                        <h4 class="data">Out Date : {{pass.out_data}}</h4>
+                        <h4 class="data">Main Reason : {{pass.main_reason}}</h4>
+                        <div class="response-con">
+                            <label for="response">Your Response :</label>
+                            <select name="response" id="response"  onchange="showDiv(this)" >
+
+                                <option value="pending">Pending</option>
+                                <option value="approve">Approve</option>                                                            
+                                <option value="reject-Out Pass Stopped Temporarily">Out Pass Temporarily Stopped </option>
+                                <option value="reject-Refer Office Room">Refer Office Room</option>
+                                
+                            </select>
+                        </div>
+            
+                        <input  style="display: none;" name="student_id"  value="{{pass.student_id}}">
+                        <input  style="display: none;" name="faculty_id"  value="{{user.username}}">
+
+                        <button class="submit" onclick="close_up()" type="submit" class="responsed">Submit</button><br>
+                        <h4>{{pass.dis}}</h4>
+
+
+                    </form>
+
+                </div>
+                {% endif %}
+                {% endfor %}
+                                
+
+                <div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                    <div class="but_con" id="pop">
+                        <img class="pop_image" src="{%static '/images/succes.png'%}" alt="right">
+                        <h4 class="message"> {{message}}</h4>
+                        <button class="note_but" style="background: rgb(99, 201, 99);" onclick="close_up()">Ok</button>
+                    </div>
+                    {% endif %}
+                    {% if message.tags == 'error' %}
+                    <div class="but_con" id="pop">
+                        <img class="pop_image" src="{%static '/images/failed.png'%}" alt="right">
+                        <h4 class="message"> {{message}}</h4>
+                        <button class="note_but" style="background: rgb(207, 68, 68);" onclick="close_up()">Try Again</button>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            
+            </div>   
+
+        {%else%}
+
+        <a href="{% url 'faculty_login'%}"><button class="home">Please Login</button></a>
+        
+        {%endif%}
+
+    </div>
+
+    <script>
+    
+        let popup = document.getElementById("pop");
+        function close_up() {
+            popup.classList.add("open_pop_up");
+        };
+
+    </script>
+
+</body>
+</html>
+
+{% endblock 'content' %} 

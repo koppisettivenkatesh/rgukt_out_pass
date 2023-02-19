@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static '/css/new_out_pass.css'%}">
+    <title>New Out Pass</title>
+</head>
+<body>
+    <div id="page-wrap">
+
+        {%if user.is_authenticated%}
+
+        <div class="main-con">
+
+            <div class="main">
+
+                <form action="outpass" method="POST">
+                    {% csrf_token %}
+
+
+                    <input type="text" class="first_name" name="first_name" value="{{user.first_name}}" placeholder=" " required>
+                    <label class="first_name_place">First Name</label>
+
+                    <input type="text" class="last_name" name="last_name"  value="{{user.last_name}}"    placeholder=" " required>
+                    <label class="last_name_place">Last Name</label>
+
+                    <input type="text" class="id" name="student_id"   value="{{user.username}}"  placeholder=" " required>
+                    <label class="id_place">Student ID</label>
+
+                    <input type="text" class="reason" name="reason"    placeholder=" " required>
+                    <label class="reason_place">Main Reason</label>
+
+                    <input type="date" class="today" name="applied_date"    placeholder=" " required>
+                    <label class="today_place">Today's Date</label>
+
+                    <input type="date" class="date" name="out_date"    placeholder=" " required>
+                    <label class="date_place">Out Date</label>
+
+                    <textarea class="textarea" required name="discription"></textarea>
+
+                    <button type="submit" onclick="close_up()" class="submit">Submit</button>
+                
+                </form>
+
+            </div>
+
+
+            <div>
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <div class="but_con" id="pop">
+                <img class="pop_image" src="{%static '/images/failed.png'%}" alt="right">
+                <h4 class="message"> {{message}}</h4>
+                <button class="note_but" style="background: rgb(207, 68, 68);" onclick="close_up()">Try Again</button>
+            </div>
+            {% endif %}
+            {% if message.tags == 'success' %}
+            <div class="but_con" id="pop">
+                <img class="pop_image" src="{%static '/images/succes.png'%}" alt="right">
+                <h4 class="message"> {{message}}</h4>
+                <button class="note_but" style="background: rgb(99, 201, 99);" onclick="close_up()">OK</button>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    
+        {%else%}
+        <a href="{% url 'student_login' %}"><button class="home" >Please Login</button></a>
+        {%endif%}
+
+    </div>
+
+    <script>
+
+        let popup = document.getElementById("pop");
+        function close_up() {
+            popup.classList.add("open_pop_up");
+        }
+    </script>   
+</body>
+</html>
+
+{% endblock 'content' %} 

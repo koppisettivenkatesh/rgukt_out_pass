@@ -1,0 +1,202 @@
+    * {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: linear-gradient(to right, #2980B9, #6DD5FA);
+    font-family: 'Poppins';
+}
+
+
+#page-wrap {
+    max-width: 1350px;
+    margin: 0 auto;
+
+}
+
+.main-con{
+    display: flex;
+    justify-content: center ;
+    flex-direction: row;
+}
+.main {
+    width: 44%;
+    height:450px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: .4rem;
+    margin-top: 13%;
+
+}
+
+.first_name , .last_name , .id , .reason, .today, .date{
+    padding: 0.8rem;
+    width: 15rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    color: rgb(117, 111, 111);;
+    outline: none;
+    border: 2px solid rgb(117, 111, 111);
+    letter-spacing: 1px;
+    border-radius: 0.4rem;
+    font-family: poppins;
+
+
+}
+
+
+
+.first_name_place , .last_name_place ,.id_place ,.reason_place ,.today_place , .date_place {
+    position: absolute;
+    font-size: 13px;
+    margin-left: -14rem;
+    margin-top: 1.9rem;
+    padding: 0px 5px;
+    color: rgb(117, 111, 111);
+    pointer-events: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.first_name:focus+.first_name_place,
+input:not(:placeholder-shown)+.first_name_place ,.last_name:focus+.last_name_place,
+input:not(:placeholder-shown)+.last_name_place , .id:focus+.id_place,
+input:not(:placeholder-shown)+.id_place ,.reason:focus+.reason_place,
+input:not(:placeholder-shown)+.reason_place ,.today:focus+.today_place,
+input:not(:placeholder-shown)+.today_place , .date:focus+.date_place,
+input:not(:placeholder-shown)+.date_place  {
+    margin-top: 0.50rem;
+    font-size: 0.8em;
+    background: white;
+    padding: 0;
+}
+.textarea {
+    padding: 0.8rem;
+    width: 15rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    color:rgb(117, 111, 111);;
+    outline: none;
+    border: 2px solid rgb(117, 111, 111);;
+    letter-spacing: 1px;
+    border-radius: 0.4rem;
+    resize: none;
+    font-size: small;
+    width: 89%;
+    height: 130px;
+    font-weight: bold;
+    font-family: poppins;
+
+
+}
+
+.submit {
+    color: rgb(117, 111, 111);;
+    font-weight: bold;
+    border: transparent;
+    width: 6rem;
+    height: 2.8rem;
+    font-weight: bold;
+    margin-top: .5rem;
+    float: right;
+    margin-right: 9%;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0.4rem;
+    font-size: large;
+    font-family: poppins;
+    border: 2px solid rgb(117, 111, 111);;
+}
+.submit:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.home{
+    background: white;
+    border-radius: .4rem;
+    color: rgb(109, 104, 104);
+    width: 20%;
+    padding: 1rem 1rem;
+    border-radius: .4rem;
+    border: none;
+    margin-top: 27%;
+    margin-left: 40%;
+    font-weight: bold;
+    font-family: poppins;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+  .home:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
+  }
+
+
+  .footer{
+    margin-top: 5%;
+
+  }
+
+ 
+input{
+    font-family: poppins;
+    font-weight: bold;
+    box-shadow:  0 50px  white inset ;
+    -webkit-text-fill-color: rgb(117, 111, 111) ;
+  }
+  
+   
+.but_con {
+    width: 20%;
+    height: 30vh;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: poppins;
+    transition: ease-out 0.3s;
+    margin-left: -45%;
+    margin-top: 10rem;
+    transform:  scale(1);
+    position: absolute;
+  }
+  
+  .open_pop_up {
+    transform:scale(0);
+  }
+  .pop_image{
+    width: 25%;
+    margin-top: -1rem;
+    height: 9.5vh;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .message{
+      font-family: poppins;
+      font-weight: bold;
+      margin-top: 2%;
+  
+  }
+  .note_but {
+    margin-top: 1rem;
+    background: rgb(41, 207, 41);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    border: none;
+    width: 15%;
+    height: 5.5vh;
+    font-family: poppins;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }

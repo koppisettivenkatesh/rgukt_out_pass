@@ -1,0 +1,97 @@
+{% extends 'no_account_base.html' %}
+
+{% block 'content' %}
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static '/css/security.css'%}">
+    <title>Security </title>
+</head>
+<body>
+    <!-- <div id="page-wrap"> -->
+
+        <div class="scan-con">
+            <a class="access_links" id="extend" href="{% url 'scan' %}">scan</a>        
+        </div>
+        <div>
+            {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="but_con" id="pop">
+
+                        <button class="note_but" style="background: rgb(207, 68, 68);" onclick="close_up()">Try Again</button>
+
+                    </div>
+                {% endif %}
+                {% if message.tags == 'success' %}
+                    {% for data in data %}
+                        <div class="but_con" id="pop">
+                            <div class="pop_con">
+                                <div class="pop_left">
+                                    {% for profile in profile %}
+                                    <div class="student_img_con">
+
+                                        <Span  class="cap">Student Details</Span>
+
+                                        <img src="{{profile.student_img.url}}" alt="" class="student_img">
+
+                                    </div>
+                                    <div class="student_details_con">
+                                        <span class="details" >First Name : {{data.first_name}}</span>
+                                        <span class="details" >Last Name : {{data.last_name}}</span>
+                                        <span class="details" >ID Number : {{data.student_id}}</span>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="pop_right">
+
+                                    <div class="content_con">
+
+                                        <Span class="cap">Out Pass Details Details</Span>
+
+                                    </div>
+
+                                    <div class="out_details_con">
+
+                                        <span class="details" >First Name : {{data.first_name}}</span>
+                                        <span class="details" >Last Name : {{data.last_name}}</span>
+                                        <span class="details" >ID Number : {{data.student_id}}</span>
+                                        <span class="details" >Main Reason :{{data.main_reason}} </span>
+                                        <span class="details" >Description :{{data.dis}} </span>
+                                        <span class="details" >Out Pass Date :{{data.today_date}} </span>
+                                        <span class="details" >Leaving Date :{{data.out_data}} </span>
+                                        <span> Out Pass Status  : {{data.response}} </span>
+                                        <span> Security Scan : {{message}}</span>
+                                        <span class="details" >Out Date: {{data.student_out}} </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="note_but" style="background: rgb(99, 201, 99);" onclick="close_up()">OK</button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+    <script>
+
+        let popup = document.getElementById("pop");
+        function close_up() {
+            popup.classList.add("open_pop_up");
+        }
+    </script> 
+</body>
+</html>
+
+
+{% endblock 'content' %} 

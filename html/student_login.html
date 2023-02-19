@@ -1,0 +1,79 @@
+
+{% extends 'no_account_base.html' %}
+
+{% block 'content' %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{%static '/css/login.css'%}">
+  <link rel="stylesheet" href="{%static '/css/pop_up.css'%}">
+  <title>Student Login</title>
+</head>
+
+<body>
+
+  <div id="page-wrap">
+
+    <div class="fit">
+
+      <form action="login" method="POST">
+        {% csrf_token %}
+
+        <div class="con">
+          
+          <input type="text" class="input-data-user" name="student_id"  placeholder=" " required>
+          <label class="id_place">Student ID ( Like R170001 )</label>
+
+          <input type="password" class="input-data-passwd" name="password"  placeholder=" " required>
+          <label class="passwd">Password</label>
+
+          <button type="submit" class="login">Login</button>
+          <label class="notice">Don't Have an Account !</label>
+          <a href="{% url 'student_sign_up' %}">SignUp</a>
+          
+        </div>
+
+      </form>
+
+      <div>
+          {% if messages %}
+          {% for message in messages %}
+          {% if message.tags == 'error' %}
+          <div class="but_con" id="pop">
+            <img class="pop_image" src="{%static '/images/failed.png'%}" alt="right">
+            <h4 class="message"> {{message}}</h4>
+            <button class="note_but" style="background: rgb(207, 68, 68);" onclick="close_up()">Try Again</button>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="display" class="mobile-con">
+    <p class="mobile" >Site is  not compatible with mobile please use as desktop site </p>
+  </div>
+
+  <script>
+    let popup = document.getElementById("pop");
+    function close_up() {
+      popup.classList.add("open_pop_up");
+    }
+  </script>
+
+</body>
+
+</html>
+
+{% endblock 'content' %}

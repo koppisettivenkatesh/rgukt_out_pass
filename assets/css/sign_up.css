@@ -1,0 +1,206 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+#page-wrap {
+    max-width: 1350px;
+    margin: 0 auto;
+  }
+  
+.fit{
+    height: 550px;
+    display: flex;
+    margin-top: 5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 350px;
+    height: 510px;
+    border-radius: 6px;
+    background: #15364b;
+    box-shadow: 2px 2px 4px 0px rgb(85, 82, 82);
+    display: flex;
+    flex-direction: row;
+}
+
+.form_fit{
+    margin-left: 30px;
+
+}
+
+.first-name , .last-name ,.email , .id ,.passwd ,.passwd-check {
+    padding: 0.8rem;
+    width: 15rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background: transparent;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    border: 2px solid white;
+    letter-spacing: 1px;
+    border-radius: 0.4rem;
+
+}
+
+.first-name-place , .last-name-place ,.email-place  , 
+.id_place , .passwd-place ,.passwd-check-place  {
+    position: absolute;
+    font-size: 13px;
+    margin-left: -14rem;
+    margin-top: 1.9rem;
+    padding: 0px 5px;
+    color: rgb(255, 255, 255);
+    pointer-events: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.first-name:focus+.first-name-place,
+input:not(:placeholder-shown)+.first-name-place , .last-name:focus+.last-name-place,
+input:not(:placeholder-shown)+.last-name-place , 
+.email:focus+.email-place,
+input:not(:placeholder-shown)+.email-place, .id:focus+.id_place,
+input:not(:placeholder-shown)+.id_place  , .passwd:focus+.passwd-place,
+input:not(:placeholder-shown)+.passwd-place , .passwd-check:focus+.passwd-check-place,
+input:not(:placeholder-shown)+.passwd-check-place {
+    margin-top: 0.50rem;
+    font-size: 0.8em;
+    background: #15364b;
+    padding: 0;
+}
+
+.signup {
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+    width: 6rem;
+    height: 2.8rem;
+    margin-top: 1.7rem;
+    margin-left: 12rem;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0.4rem;
+    font-family: poppins;
+    font-weight: bold;
+}
+
+.notice {
+    font-size: 11px;
+    color: #fff;
+    margin-left: 3.5rem;
+
+}
+
+.notice-1 {
+    margin-top: 1rem;
+}
+
+a {
+    font-size: 11px;
+    color: rgb(78, 160, 171);
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+input{
+    font-family: poppins;
+    font-weight: bold;
+    box-shadow:  0 50px  #15364b inset ;
+    -webkit-text-fill-color: white;
+}
+
+
+  
+.but_con {
+    width: 20%;
+    height: 30vh;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: poppins;
+    margin-top: 11rem ;
+    margin-left: -20%;
+    transition: ease-out 0.3s;
+    transform:  scale(1);
+    position: absolute;
+  }
+  
+  .open_pop_up {
+    transform:scale(0);
+  }
+  .pop_image{
+    width: 25%;
+    margin-top: -1rem;
+    height: 9.5vh;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .message{
+      font-family: poppins;
+      font-weight: bold;
+      margin-top: 2%;
+  
+  }
+  .note_but {
+    margin-top: 1rem;
+    background: rgb(41, 207, 41);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    border: none;
+    width: 15%;
+    height: 5.5vh;
+    font-family: poppins;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+
+  
+.mobile-con{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile{
+    padding: 1rem;
+    background-color: white;
+    font-family: poppins;
+    font-weight: 500;
+  }
+  
+  
+  #display{
+    display: none;
+  }
+  
+  
+  
+  @media (max-width : 830px) {
+    #page-wrap{
+      display: none;
+    }
+    #display{
+      display: block;
+    }
+  }
